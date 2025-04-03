@@ -34,29 +34,29 @@ class View(ft.UserControl):
         #ROW with some controls
         # dropdown options
         self.dropdownAnno = ft.Dropdown(
-            width=self._page.width / 3, label="Anno", options=[ft.dropdown.Option (key=None, text="Nessun valore")],
+            width=self._page.width / 4, label="Anno", options=[ft.dropdown.Option (key= "Nessun valore", text="Nessun valore")],
             on_change = self._controller.dropdownAnnoChanged
 
         )
         self._controller.handleDropdownAnno()
 
         self.dropdownBrand = ft.Dropdown(
-            width=self._page.width / 3, label="Brand", options=[ft.dropdown.Option (key=None, text="Nessun valore")],
+            width=self._page.width / 4, label="Brand", options=[ft.dropdown.Option (key="Nessun valore", text="Nessun valore")],
             on_change = self._controller.dropdownBrandChanged
 
         )
         self._controller.handleDropdownBrand()
 
         self.dropdownRetailer = ft.Dropdown(
-            width=self._page.width / 2, label="Retailer", options=[ft.dropdown.Option (key=None, text="Nessun valore")],
+            width=self._page.width / 4, label="Retailer", options=[ft.dropdown.Option (key="Nessun valore", text="Nessun valore")],
             on_change = self._controller.dropdownRetailerChanged
 
         )
         self._controller.handleDropdownRetailer()
 
         # buttons
-        self.btnTopV = ft.ElevatedButton(text="Top vendite")
-        self.btnAnalizzaV = ft.ElevatedButton(text="Analizza vendite")
+        self.btnTopV = ft.ElevatedButton(text="Top vendite", on_click=self._controller.handleTopVendite)
+        self.btnAnalizzaV = ft.ElevatedButton(text="Analizza vendite", on_click=self._controller.handleAnalizzaVendite)
 
         #Append rows to page
         row1 = ft.Row([self.dropdownAnno, self.dropdownBrand, self.dropdownRetailer], alignment=ft.MainAxisAlignment.CENTER)
@@ -89,7 +89,7 @@ class View(ft.UserControl):
     def update_dropdown_widths(self, e):
         self.dropdownAnno.width = self._page.width / 4
         self.dropdownBrand.width = self._page.width / 4
-        self.dropdownRetailer.width = self._page.width / 2
+        self.dropdownRetailer.width = self._page.width /4
         self._page.update()
 
     def update_page(self):
